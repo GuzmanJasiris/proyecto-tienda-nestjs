@@ -1,20 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateUserDto } from './dto/user.dto';
-import { User } from './entities/user.entity';
+import { CreateUserDto } from '../dto/user.dto';
+import { User } from '../entities/user.entity';
 
 @Injectable()
 export class UsersService {
-  userRepo: any;
+
   constructor(
     @InjectRepository(User)
-    private readonly productRepo: Repository<User>,
+    private readonly userRepo: Repository<User>
   ) {}
 //crear un registro
   async create(createUserDto: CreateUserDto) {
     const user = this.userRepo.create(createUserDto);
-    await this.productRepo.save(user);
+    await this.userRepo.save(user);
 
     return user;
   }
@@ -35,7 +35,7 @@ export class UsersService {
 //eliminar un registro
   async remove(id: number) {
   const user = await this.finOne(id);
-  await this.productRepo.remove(user);
+  await this.userRepo.remove(user);
   return ' producto eliminado satisfactoriamente' ;
   }
 

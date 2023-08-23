@@ -6,6 +6,7 @@ import { ProductsModule } from './products/products.module';
 import { UsersModule } from './users/users.module';
 import { MarcasModule } from './marcas/marcas.module';
 
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -20,7 +21,8 @@ import { MarcasModule } from './marcas/marcas.module';
     }),
     ProductsModule,
     UsersModule,
-    MarcasModule
+    MarcasModule,
+   
   ],
   controllers: [AppController],
   providers: [AppService],
