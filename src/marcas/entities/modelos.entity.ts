@@ -23,7 +23,6 @@ export class Modelos {
   })
   autor: User;
 
-  
   @ManyToOne(()=> Marca)
   @JoinColumn({
    name: 'marca_id', 

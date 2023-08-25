@@ -16,18 +16,19 @@ export class ModelosService{
         return marca;
     }
 
+    //Encontrar una modelo
     
     findOne(id: number){
         return this.modelosRepo.findOne({
             where: {id},
             relations: {
-                autor: true,
-                marca: true,
+               marca: true,
+               autor: true,
             }
-    
+       
         });
-    }
-
+   }
+    //mostrar todas las modelos
     findAll(){
         return   this.modelosRepo.find({
             order: {id: 'ASC'},
